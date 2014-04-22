@@ -1,8 +1,8 @@
 load test_helper
 
-@test "it works" {
+@test "writes the current iTunes artist to .music" {
   run $dot_music
 
-  [ $output == "dot-music" ]
+  cat $musicfile | grep "dot-music"
   [ $status -eq 0 ]
 }

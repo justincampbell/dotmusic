@@ -2,4 +2,4 @@
 
 set -e
 
-echo "dot-music" > .music
+dot-music-itunes > .music

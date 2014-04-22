@@ -15,6 +15,10 @@ teardown() {
   echo $status: $output
 }
 
+line() {
+  head -n $1 | tail -n 1
+}
+
 stub() {
   stub=$DM_STUBS/$1
   mkdir -p $DM_STUBS

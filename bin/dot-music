@@ -2,4 +2,16 @@
 
 set -e
 
-dot-music-itunes > .music
+artist=$(dot-music-itunes)
+
+if [ "$artist" == "" ]; then
+  exit 0
+fi
+
+if [ ! -f .music ]; then
+  touch .music
+fi
+
+if ! grep $artist .music; then
+  echo $artist >> .music
+fi

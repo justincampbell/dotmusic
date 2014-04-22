@@ -1,10 +1,10 @@
-HOMEPAGE=https://github.com/justincampbell/dot-music
+HOMEPAGE=https://github.com/justincampbell/dotmusic
 PREFIX=/usr/local
 
 VERSION=0.1.0
 TAG=v$(VERSION)
 
-ARCHIVE=dot-music-$(TAG).tar.gz
+ARCHIVE=dotmusic-$(TAG).tar.gz
 ARCHIVE_URL=$(HOMEPAGE)/archive/$(TAG).tar.gz
 FILES=`find bin -type file`
 

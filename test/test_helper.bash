@@ -1,10 +1,10 @@
 setup() {
-  DM_TMPDIR=$BATS_TMPDIR/dot-music
+  DM_TMPDIR=$BATS_TMPDIR/dotmusic
   DM_STUBS=$DM_TMPDIR/stubs
   PATH=$DM_STUBS:$PATH
 
   musicfile=$DM_TMPDIR/.music
-  dot_music=$PWD/bin/dot-music
+  dotmusic=$PWD/bin/dotmusic
 
   rm -rf $DM_TMPDIR
   mkdir -p $DM_TMPDIR

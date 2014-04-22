@@ -1,18 +1,18 @@
 load test_helper
 
 @test "writes the current iTunes artist to .music" {
-  stub dot-music-itunes "echo Radiohead"
-  run $dot_music
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
 
   cat $musicfile | grep "Radiohead"
   [ $status -eq 0 ]
 }
 
 @test "stores multiple artists" {
-  stub dot-music-itunes "echo Radiohead"
-  run $dot_music
-  stub dot-music-itunes "echo The Beatles"
-  run $dot_music
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
+  stub dotmusic-itunes "echo The Beatles"
+  run $dotmusic
 
   cat $musicfile | line 1 | grep "Radiohead"
   cat $musicfile | line 2 | grep "The Beatles"
@@ -20,10 +20,10 @@ load test_helper
 }
 
 @test "creates multiple artists for partial matches" {
-  stub dot-music-itunes "echo Radiohead"
-  run $dot_music
-  stub dot-music-itunes "echo Radiohead Coverband"
-  run $dot_music
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
+  stub dotmusic-itunes "echo Radiohead Coverband"
+  run $dotmusic
 
   cat $musicfile | line 1 | grep "Radiohead"
   cat $musicfile | line 2 | grep "Radiohead Coverband"
@@ -31,17 +31,17 @@ load test_helper
 }
 
 @test "does not create duplicates" {
-  stub dot-music-itunes "echo Radiohead"
-  run $dot_music
-  run $dot_music
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
+  run $dotmusic
 
   cat $musicfile | wc -l | grep "1"
   [ $status -eq 0 ]
 }
 
 @test "does not create .music with no artist" {
-  stub dot-music-itunes "echo"
-  run $dot_music
+  stub dotmusic-itunes "echo"
+  run $dotmusic
 
   [ ! -f $musicfile ]
   [ $status -eq 0 ]
@@ -49,8 +49,8 @@ load test_helper
 
 @test "does not append .music with no artist" {
   touch $musicfile
-  stub dot-music-itunes "echo"
-  run $dot_music
+  stub dotmusic-itunes "echo"
+  run $dotmusic
 
   cat $musicfile | wc -l | grep "0"
   [ $status -eq 0 ]

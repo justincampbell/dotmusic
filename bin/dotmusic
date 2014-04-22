@@ -2,7 +2,7 @@
 
 set -e
 
-artist=$(dot-music-itunes)
+artist=$(dotmusic-itunes)
 
 if [ "$artist" == "" ]; then
   exit 0

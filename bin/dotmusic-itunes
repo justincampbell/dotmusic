@@ -1,0 +1,12 @@
+#!/bin/bash
+
+osascript -e '
+  tell application "iTunes"
+    if it is running then
+      if player state is playing then
+        set artist_name to artist of current track
+        do shell script "echo " & artist_name
+      end if
+    end if
+  end tell
+'

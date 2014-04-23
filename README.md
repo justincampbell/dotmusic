@@ -18,4 +18,17 @@
 
 Just run `dotmusic`, and the `.music` file in your project root will be appended with the current iTunes artist, if it doesn't already exist.
 
-Add this to your `$PROMPT_COMMAND` for the best experience.
+Add this to your `$PROMPT_COMMAND` for the best experience:
+
+    PROMPT_COMMAND='(dotmusic &)'
+
+The `&` backgrounds it, and the parenthesis make it silent.
+
+If you already have a `$PROMPT_COMMAND`, extract it into a function:
+
+    prompt_command() {
+      (dotmusic &)
+      [ -d .git ] && git symbolic-ref --short HEAD
+    }
+
+    PROMPT_COMMAND='prompt_command'

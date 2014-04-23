@@ -9,7 +9,7 @@ setup() {
   rm -rf $DM_TMPDIR
   mkdir -p $DM_TMPDIR
   cd $DM_TMPDIR
-  mkdir .git
+  git init > /dev/null
 }
 
 teardown() {

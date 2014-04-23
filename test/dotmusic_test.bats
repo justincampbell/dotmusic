@@ -8,12 +8,21 @@ load test_helper
   [ $status -eq 0 ]
 }
 
-@test "only writes to a .music file in a git project" {
-  rmdir $DM_TMPDIR/.git
+@test "does not writes to the .music file without a git project" {
+  rm -rf .git
   stub dotmusic-itunes "echo Radiohead"
   run $dotmusic
 
   [ ! -f $musicfile ]
+  [ $status -eq 0 ]
+}
+
+@test "in a subdirectory, writes to the .music file in the git project root" {
+  mkdir foo; cd foo
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
+
+  [ -f $musicfile ]
   [ $status -eq 0 ]
 }
 

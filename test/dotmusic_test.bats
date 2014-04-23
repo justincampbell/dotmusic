@@ -8,6 +8,15 @@ load test_helper
   [ $status -eq 0 ]
 }
 
+@test "only writes to a .music file in a git project" {
+  rmdir $DM_TMPDIR/.git
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
+
+  [ ! -f $musicfile ]
+  [ $status -eq 0 ]
+}
+
 @test "stores multiple artists" {
   stub dotmusic-itunes "echo Radiohead"
   run $dotmusic

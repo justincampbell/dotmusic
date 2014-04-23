@@ -8,7 +8,6 @@ provisioner:
   script: kitchen.sh
 
 platforms:
-  - name: centos-6.4
   - name: ubuntu-12.04
 
 suites:

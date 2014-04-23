@@ -32,3 +32,5 @@ If you already have a `$PROMPT_COMMAND`, extract it into a function:
     }
 
     PROMPT_COMMAND='prompt_command'
+
+If you don't want this as noise in your git repos, add it to your global `~/.gitignore`.

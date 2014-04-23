@@ -6,13 +6,13 @@ if ! git status > /dev/null 2>&1; then
   exit 0
 fi
 
-musicfile=$(git rev-parse --show-toplevel)/.music
-
 artist=$(dotmusic-itunes)
 
 if [ "$artist" = "" ]; then
   exit 0
 fi
+
+musicfile=$(git rev-parse --show-toplevel)/.music
 
 if [ ! -f $musicfile ]; then
   touch $musicfile

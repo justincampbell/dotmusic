@@ -30,6 +30,18 @@ load test_helper
   [ $status -eq 0 ]
 }
 
+@test "ignores case" {
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
+  stub dotmusic-itunes "echo radiohead"
+  run $dotmusic
+
+  cat $musicfile | line 1 | grep -x "Radiohead"
+  cat $musicfile | wc -l | grep "1"
+  [ $status -eq 0 ]
+}
+
+
 @test "does not create duplicates" {
   stub dotmusic-itunes "echo Radiohead"
   run $dotmusic

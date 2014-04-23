@@ -22,7 +22,7 @@ Add this to your `$PROMPT_COMMAND` for the best experience:
 
     PROMPT_COMMAND='(dotmusic &)'
 
-The `&` backgrounds it, and the parenthesis make it silent.
+The `&` backgrounds it, and the parentheses make it silent.
 
 If you already have a `$PROMPT_COMMAND`, extract it into a function:
 

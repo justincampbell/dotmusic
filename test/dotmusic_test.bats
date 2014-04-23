@@ -20,13 +20,13 @@ load test_helper
 }
 
 @test "creates multiple artists for partial matches" {
-  stub dotmusic-itunes "echo Radiohead"
-  run $dotmusic
   stub dotmusic-itunes "echo Radiohead Coverband"
   run $dotmusic
+  stub dotmusic-itunes "echo Radiohead"
+  run $dotmusic
 
-  cat $musicfile | line 1 | grep "Radiohead"
-  cat $musicfile | line 2 | grep "Radiohead Coverband"
+  cat $musicfile | line 1 | grep -x "Radiohead Coverband"
+  cat $musicfile | line 2 | grep -x "Radiohead"
   [ $status -eq 0 ]
 }
 
@@ -53,5 +53,15 @@ load test_helper
   run $dotmusic
 
   cat $musicfile | wc -l | grep "0"
+  [ $status -eq 0 ]
+}
+
+@test "is silent" {
+  echo "Radiohead" >> $musicfile
+  echo "The Beatles" >> $musicfile
+  stub dotmusic-itunes "echo The Beatles"
+  run $dotmusic
+
+  [ "$output" = "" ]
   [ $status -eq 0 ]
 }

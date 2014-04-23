@@ -12,6 +12,6 @@ if [ ! -f .music ]; then
   touch .music
 fi
 
-if ! grep $artist .music; then
+if ! grep -x "$artist" .music > /dev/null; then
   echo $artist >> .music
 fi

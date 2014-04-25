@@ -1,3 +1,8 @@
+# 0.3.0
+
+* Support for Spotify
+* Fix issue when an artist has an & sign
+
 # 0.2.0
 
 * Only run in git projects
@@ -9,4 +14,4 @@
 
 # 0.1.0
 
-* Initial release
+* Initial release with support for iTunes

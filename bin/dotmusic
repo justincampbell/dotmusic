@@ -6,9 +6,21 @@ if ! git status > /dev/null 2>&1; then
   exit 0
 fi
 
-artist=$(dotmusic-itunes)
+providers="itunes spotify"
 
-if [ "$artist" = "" ]; then
+for provider in $providers; do
+  command="dotmusic-$provider"
+
+  if command -v $command > /dev/null 2>&1; then
+    artist=$($command)
+
+    if [ -n "$artist" ]; then
+      break
+    fi
+  fi
+done
+
+if [ -z "$artist" ]; then
   exit 0
 fi
 

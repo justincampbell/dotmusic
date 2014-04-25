@@ -8,7 +8,15 @@ load test_helper
   [ $status -eq 0 ]
 }
 
-@test "does not writes to the .music file without a git project" {
+@test "writes the current Spotify artist to .music" {
+  stub dotmusic-spotify "echo Radiohead"
+  run $dotmusic
+
+  cat $musicfile | grep "Radiohead"
+  [ $status -eq 0 ]
+}
+
+@test "does not write to the .music file without a git project" {
   rm -rf .git
   stub dotmusic-itunes "echo Radiohead"
   run $dotmusic

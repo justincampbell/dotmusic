@@ -16,7 +16,7 @@
 
 # Usage
 
-Just run `dotmusic`, and the `.music` file in your project root will be appended with the current iTunes artist, if it doesn't already exist.
+Just run `dotmusic`, and the `.music` file in your project root will be appended with the current artist, if it doesn't already exist. Dotmusic current supports iTunes and Spotify.
 
 Add this to your `$PROMPT_COMMAND` for the best experience:
 

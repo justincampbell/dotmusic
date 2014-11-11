@@ -1,4 +1,4 @@
-#!/usr/bin/osascript
+#!/usr/bin/osascript -s o
 
 tell application "iTunes"
   if it is running then

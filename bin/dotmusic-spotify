@@ -1,4 +1,4 @@
-#!/usr/bin/osascript
+#!/usr/bin/osascript -s o
 
 tell application "Spotify"
   if it is running then

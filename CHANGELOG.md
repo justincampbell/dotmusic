@@ -1,3 +1,8 @@
+# 0.4.0
+
+* Add -p option to print artist
+* Fix osascript errors
+
 # 0.3.0
 
 * Support for Spotify

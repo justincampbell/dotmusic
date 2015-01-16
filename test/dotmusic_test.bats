@@ -105,6 +105,7 @@ load test_helper
 }
 
 @test "prints the artist with -p" {
+  rm -rf .git
   stub dotmusic-itunes "echo The Beatles"
   run $dotmusic -p
 

@@ -2,6 +2,22 @@
 
 set -e
 
+OPTIND=1
+
+show=false
+write=true
+
+while getopts "p" opt; do
+  case "$opt" in
+    p)
+      show=true
+      write=false
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
 if ! git status > /dev/null 2>&1; then
   exit 0
 fi
@@ -21,6 +37,14 @@ for provider in $providers; do
 done
 
 if [ -z "$artist" ]; then
+  exit 0
+fi
+
+if [ $show = "true" ]; then
+  echo $artist
+fi
+
+if [ $write = "false" ]; then
   exit 0
 fi
 

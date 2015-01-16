@@ -18,6 +18,8 @@
 
 Just run `dotmusic`, and the `.music` file in your project root will be appended with the current artist, if it doesn't already exist. Dotmusic current supports iTunes and Spotify.
 
+You can also run `dotmusic -p` to only print the artist name.
+
 Add this to your `$PROMPT_COMMAND` for the best experience:
 
     PROMPT_COMMAND='(dotmusic &)'

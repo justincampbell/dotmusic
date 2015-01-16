@@ -103,3 +103,12 @@ load test_helper
   [ "$output" = "" ]
   [ $status -eq 0 ]
 }
+
+@test "prints the artist with -p" {
+  stub dotmusic-itunes "echo The Beatles"
+  run $dotmusic -p
+
+  [ "$output" = "The Beatles" ]
+  [ ! -f $musicfile ]
+  [ $status -eq 0 ]
+}

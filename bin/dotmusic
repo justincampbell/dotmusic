@@ -22,7 +22,7 @@ if [ $write = "true" ] && ! git status > /dev/null 2>&1; then
   exit 0
 fi
 
-providers="itunes spotify"
+providers="itunes spotify rdio"
 
 for provider in $providers; do
   command="dotmusic-$provider"

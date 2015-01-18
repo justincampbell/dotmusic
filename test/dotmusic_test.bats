@@ -16,6 +16,14 @@ load test_helper
   [ $status -eq 0 ]
 }
 
+@test "writes the current Rdio artist to .music" {
+  stub dotmusic-rdio "echo Radiohead"
+  run $dotmusic
+
+  cat $musicfile | grep "Radiohead"
+  [ $status -eq 0 ]
+}
+
 @test "does not write to the .music file without a git project" {
   rm -rf .git
   stub dotmusic-itunes "echo Radiohead"

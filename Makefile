@@ -1,7 +1,7 @@
 HOMEPAGE=https://github.com/justincampbell/dotmusic
 PREFIX=/usr/local
 
-VERSION=0.4.0
+VERSION=0.5.0
 TAG=v$(VERSION)
 
 ARCHIVE=dotmusic-$(TAG).tar.gz

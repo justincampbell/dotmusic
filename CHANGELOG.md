@@ -1,3 +1,8 @@
+# 0.5.0
+
+* Support for Rdio (Jearvon Dharrie)
+* Fix artist names with apostrophes
+
 # 0.4.0
 
 * Add -p option to print artist

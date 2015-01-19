@@ -4,7 +4,7 @@ tell application "Spotify"
   if it is running then
     if player state is playing then
       set artist_name to artist of current track
-      do shell script "echo '" & artist_name & "'"
+      do shell script "echo " & quoted form of artist_name
     end if
   end if
 end tell
